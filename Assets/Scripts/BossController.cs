@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossController : MonoBehaviour {
+public abstract class BossController : MonoBehaviour {
     // Pubic Members
     public float health = 500f; // Starting health value
     public float movementSpeed = 8f; // Speed enemy will move through the world
@@ -60,9 +60,9 @@ public class BossController : MonoBehaviour {
     }
 
     // Abstract Functions For Specific Boss Files To Override
-    private abstract void AttackPlayer();
-    private abstract void TakeDamage();
-    private abstract void OnDeath();
+    public abstract void AttackPlayer();
+    public abstract void TakeDamage();
+    public abstract void OnDeath();
 
     // Private Accessors
     public Rigidbody2D GetBody() { return _body; }
