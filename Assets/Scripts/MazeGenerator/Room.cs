@@ -20,4 +20,9 @@ public class Room : MonoBehaviour {
     void Update() {
         
     }
+
+    private void FixedUpdate() {
+        
+    }
+
 }
