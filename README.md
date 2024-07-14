@@ -54,9 +54,11 @@ Unavailable currently.
 
 # **Developers/Credits**
 
-David Stearns
-Quajhe Phillip-Caesar (Dre)
-Anthony Reinman
+### David Stearns
+
+### Quajhe Phillip-Caesar (Dre)
+
+### Anthony Reinman
 
 
 
