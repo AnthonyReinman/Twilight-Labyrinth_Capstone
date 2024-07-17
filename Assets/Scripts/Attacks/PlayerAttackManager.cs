@@ -18,6 +18,9 @@ public class PlayerAttackManager : MonoBehaviour
         // Update the attack timer
         attackTimer += Time.deltaTime;
 
+            // Stop attacks if GameOver
+        if (GameManager.Instance != null && GameManager.Instance.isGameOver) return;
+
         // Check if the attack timer has reached the attack interval
         if (attackTimer >= attackInterval)
         {

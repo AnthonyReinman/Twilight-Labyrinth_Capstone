@@ -15,7 +15,8 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (GameManager.Instance.isGameOver) return;
+        if (GameManager.Instance != null && GameManager.Instance.isGameOver) return;
+
 
         Debug.Log("TakeDamage called with amount: " + amount);
         currentHealth -= amount;

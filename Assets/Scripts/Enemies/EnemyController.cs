@@ -19,10 +19,24 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
+        
+        if (_body == null)
+        {
+            Debug.LogError("Rigidbody2D not found on Enemy");
+        }
+
+
         if (!playerObject)
         {
-            playerObject = GameObject.FindGameObjectWithTag("Player").transform;
-            if (!playerObject) Debug.LogError("Enemy failed to find player!");
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player != null)
+            {
+                playerObject = player.transform;
+            }
+            else
+            {
+                Debug.LogError("Enemy failed to find player!");
+            }
         }
     }
 

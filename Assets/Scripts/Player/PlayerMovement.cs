@@ -4,17 +4,24 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Ensure a reasonable default value
 
-    // Update is called once per frame
+    private Rigidbody2D _rigidbody;
+
+     void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+        if (_rigidbody == null)
+        {
+            Debug.LogError("Rigidbody2D not found on Player");
+        }
+    }
+
     void Update()
     {
-        Vector3 moveInput = new Vector3(0f, 0f, 0f);
-
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
-
+        if (GameManager.Instance != null && GameManager.Instance.isGameOver) return;
+        
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveInput.Normalize();
 
-        transform.position += moveInput * moveSpeed * Time.deltaTime;
-
+        _rigidbody.velocity = moveInput * moveSpeed;
     }
 }
