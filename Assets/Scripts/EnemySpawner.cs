@@ -15,8 +15,10 @@ public class EnemySpawner : MonoBehaviour {
         }
     }
 
-    void Spawn() {
-        Vector2 spawnPosition = new Vector2(
+     void Spawn()
+    {
+        Vector2 playerPosition = transform.position; // Get the player's current position
+        Vector2 spawnPosition = playerPosition + new Vector2(
             Random.Range(-spawnRadius, spawnRadius),
             Random.Range(-spawnRadius, spawnRadius)
         );

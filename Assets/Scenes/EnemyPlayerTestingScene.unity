@@ -248,12 +248,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911518400}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1902867705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1639611937
 GameObject:
@@ -446,8 +446,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1902867705}
   - component: {fileID: 1902867704}
-  - component: {fileID: 1902867706}
   - component: {fileID: 1902867707}
+  - component: {fileID: 1902867706}
   m_Layer: 0
   m_Name: TmpPlayerTest
   m_TagString: Player
@@ -520,10 +520,11 @@ Transform:
   m_GameObject: {fileID: 1902867703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.12, y: 2.89, z: 0}
+  m_LocalPosition: {x: -3.37, y: -1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 911518404}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1902867706
@@ -538,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69704cda513891e48b89a9561e0fe093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
 --- !u!114 &1902867707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,17 +549,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902867703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2cf40d7472896847ba548446c058d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cde3ee9122f38f4ab09b62687e34b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  basicProjectile: {fileID: 7184521552436300047, guid: b3f4f8ee75d50a44d928bac58ec01e87,
-    type: 3}
-  attackInterval: 1
+  enemyPrefab: {fileID: 1639611937}
+  spawnRate: 5
+  spawnRadius: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 911518404}
   - {fileID: 1639611942}
   - {fileID: 1902867705}
