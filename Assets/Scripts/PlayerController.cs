@@ -1,11 +1,11 @@
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    // Public Members
     public float movementSpeed = 5f;
     public float maxHealth = 100f;
     public float currentHealth;

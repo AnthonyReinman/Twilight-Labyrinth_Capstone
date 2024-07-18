@@ -2,19 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D theRigidbody;
-
     public float moveSpeed;
-
-    public Animator animator;
-
-    public float pickupRange = 1.5f;
-
-    private void Awake()
-    {
-        theRigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Vector3 moveInput = new Vector3(0f, 0f, 0f);
 
@@ -32,15 +20,6 @@ public class PlayerMovement : MonoBehaviour
 
         moveInput.Normalize();
 
-        theRigidbody.velocity = moveInput * moveSpeed;
-
-        if (moveInput != Vector3.zero)
-        {
-            animator.SetBool("Move", true);
-        }
-        else
-        {
-            animator.SetBool("Move", false);
-        }
+        transform.position += moveInput * moveSpeed * Time.deltaTime;
     }
 }
