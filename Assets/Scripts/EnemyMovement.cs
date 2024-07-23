@@ -10,20 +10,25 @@ public class EnemyMovement : MonoBehaviour
 
     public float hitWaitTime = 1f;
     private float hitCounter;
+
+    public float health = 10f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        target = FindAnyObjectByType<PlayerMovement>().transform;
-
-        moveSpeed = Random.Range(0.7f, 1.4f);
+        target = PlayerHealth.instance.transform;
+        moveSpeed = Random.Range(moveSpeed * 0.7f, moveSpeed * 1.4f); // mobs random speed movement
     }
 
     // Update is called once per frame
     void Update()
     {
-        theRigidbody.velocity = (target.position - transform.position).normalized * moveSpeed;
+        if (target != null)
+        {
+            theRigidbody.velocity = (target.position - transform.position).normalized * moveSpeed;
+        }
 
-        if(hitCounter > 0f)
+        if (hitCounter > 0f)
         {
             hitCounter -= Time.deltaTime;
         }
@@ -31,11 +36,28 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(PlayerHealth.instance.tag == "Player" && hitCounter <= 0f)
+        var player = collision.gameObject.GetComponent<PlayerHealth>();
+        if (player != null)
+        {
+            player.TakeDamage(damage);
+            hitCounter = hitWaitTime;
+        }
+
+        /* if(PlayerHealth.instance.tag == "Player" && hitCounter <= 0f)
         {
             PlayerHealth.instance.TakeDamage(damage);
 
             hitCounter = hitWaitTime;
-        }    
+        } */
+    }
+
+    public void TakeDamage(float damageToTake)
+    {
+        health -= damageToTake;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
