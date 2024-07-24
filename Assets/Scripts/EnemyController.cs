@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
     // Pubic Members
+    public LayerMask wallLayer;
     public float health = 100f; // Starting health value
     public float movementSpeed = 5f; // Speed enemy will move through the world
     public float attackRange = 10f; // Max distance you can be from player to attack
@@ -22,17 +24,29 @@ public class EnemyController : MonoBehaviour {
     // public int stuckCheckInterval = (60 * 30);
     // private int stuckCheckCounter = (60 * 30) + 1;
     // private Vector2 lastPos;
-    private Vector2 avoidanceDirection;
-    private bool avoidingWall = false;
-    public float wallAvoidDist = 1f;
-    private float avoidTime = 5f;
-    private float avoidTimer = 0f;
-    private float cooldownTimer = 0f;
-    public float cooldownTime = 2f;
+    // private Vector2 avoidanceDirection;
+    // private bool avoidingWall = false;
+    // public float wallAvoidDist = 5f;
+    // private float avoidTime = 100f;
+    // private float avoidTimer = 0f;
+
+    // public float wallAvoidDist = 1f;
+    // public float avoidTime = 5f;
+    // public float avoidTimer = 0f;
+    // public float waitTime = 2f;
+    // private float cooldownTimer = 0f;
+    // private Vector2 avoidanceDirection;
+    // private bool avoidingWall = false;
+
+    // public float wallDetctDist = 1f;
+    UnityEngine.AI.NavMeshAgent agent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         _body = GetComponent<Rigidbody2D>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         if (!playerObject) {
             playerObject = GameObject.FindGameObjectWithTag("Player").transform;
             if (!playerObject) Debug.LogError("Enemy failed to find player!");
@@ -46,6 +60,7 @@ public class EnemyController : MonoBehaviour {
             Vector2 tmpDirection = (Vector2)playerObject.position - _body.position;
             tmpDirection.Normalize();
             _playerDirection = tmpDirection;
+            agent.SetDestination(playerObject.position);
 
             // Debug.DrawLine(_body.position, _body.position + _playerDirection * 2, Color.yellow);
 
@@ -57,31 +72,41 @@ public class EnemyController : MonoBehaviour {
             //     nextMove = _playerDirection;
             // }
 
-            RaycastHit2D hit;
+            // RaycastHit2D hit;
 
-            if (avoidingWall) {
-                hit =  Physics2D.Raycast(_body.position, avoidanceDirection, wallAvoidDist, LayerMask.GetMask("Wall"));
-                Debug.DrawLine(_body.position, _body.position + avoidanceDirection * wallAvoidDist, Color.yellow);
-            } else {
-                hit = Physics2D.Raycast(_body.position, _playerDirection, 2, LayerMask.GetMask("Wall"));
-                Debug.DrawLine(_body.position, _body.position + _playerDirection * 2, Color.yellow);
-            }
+            // if (avoidingWall) {
+            //     hit =  Physics2D.Raycast(_body.position, avoidanceDirection, wallAvoidDist, LayerMask.GetMask("Wall"));
+            //     Debug.DrawLine(_body.position, _body.position + avoidanceDirection * wallAvoidDist, Color.yellow);
+            // } else {
+            //     hit = Physics2D.Raycast(_body.position, _playerDirection, 2, LayerMask.GetMask("Wall"));
+            //     Debug.DrawLine(_body.position, _body.position + _playerDirection * 2, Color.yellow);
+            // }
 
-            if (hit.collider != null) {
-                if (!avoidingWall) {
-                    avoidanceDirection = (Random.value > 0.2f ? Vector2.Perpendicular(_playerDirection) : -Vector2.Perpendicular(_playerDirection)).normalized;
-                    avoidingWall = true;
-                    avoidTimer = avoidTime;
-                }
-                nextMove = (_playerDirection + avoidanceDirection * wallAvoidDist).normalized;
-                avoidTimer -= Time.deltaTime;
-                if (avoidTimer <= 0) {
-                    avoidingWall = false;
-                }
-            } else {
-                nextMove = _playerDirection;
-                avoidingWall = false;
-            }
+            // if (hit.collider != null) {
+            //     if (!avoidingWall) {
+            //         avoidanceDirection = (Random.value > 0.5f ? Vector2.Perpendicular(_playerDirection) : -Vector2.Perpendicular(_playerDirection)).normalized;
+            //         avoidingWall = true;
+            //         avoidTimer = avoidTime;
+            //     }
+            //     nextMove = (_playerDirection + avoidanceDirection * wallAvoidDist).normalized;
+            //     avoidTimer -= Time.deltaTime;
+            //     if (avoidTimer <= 0) {
+            //         avoidingWall = false;
+            //     }
+            // } else {
+            //     nextMove = _playerDirection;
+            //     avoidingWall = false;
+            // }
+
+            // nextMove = _playerDirection;
+            // RaycastHit2D rcHit = Physics2D.Raycast(transform.position, nextMove, wallDetctDist, wallLayer);
+            // Debug.DrawLine(_body.position, _body.position + nextMove * wallDetctDist, Color.yellow);
+            // if (rcHit.collider != null) {
+            //     Vector2 wallNml = rcHit.normal;
+            //     Vector2 avoidDirc = Vector2.Perpendicular(wallNml).normalized;
+            //     nextMove = avoidDirc;
+            // }
+
 
             // Get distance to player
             _playerDistance = Vector2.Distance(playerObject.position, _body.position);
@@ -109,8 +134,12 @@ public class EnemyController : MonoBehaviour {
     // Fixed Update is where updates to the RigidBody should go
     private void FixedUpdate() {
         if (_body != null && _playerDirection != null) {
-            _body.MovePosition((Vector2)_body.position + (nextMove * movementSpeed * Time.fixedDeltaTime));
+            // _body.MovePosition((Vector2)_body.position + (nextMove * movementSpeed * Time.fixedDeltaTime));
         }
+
+        // if (agent != null && playerObject != null) {
+        //     agent.SetDestination(playerObject.position);
+        // }
     }
 
     private void AttackPlayer() {
