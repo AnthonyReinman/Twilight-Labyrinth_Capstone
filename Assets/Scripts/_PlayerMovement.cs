@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class _PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D theRigidbody;
 

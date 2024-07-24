@@ -10,11 +10,11 @@ public class ExpPickup : MonoBehaviour
     public float timeBetweenChecks = .2f;
     private float checkCounter;
 
-    private PlayerMovement player;
+    private _PlayerMovement player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = PlayerHealth.instance.GetComponent<PlayerMovement>();
+        player = PlayerHealth.instance.GetComponent<_PlayerMovement>();
     }
 
     // Update is called once per frame
