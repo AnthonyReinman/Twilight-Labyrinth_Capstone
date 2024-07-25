@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69704cda513891e48b89a9561e0fe093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
 --- !u!212 &430627676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -604,8 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c32f48058800f9478f0e5a7c120f37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 10000
-  maxHealth: 10000
+  currentHealth: 100
+  maxHealth: 100
   healthSlider: {fileID: 1664370375}
 --- !u!114 &430627681
 MonoBehaviour:
