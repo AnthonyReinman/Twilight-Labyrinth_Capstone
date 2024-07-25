@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour {
+public class _EnemyController : MonoBehaviour {
 
     // Pubic Members
     public LayerMask wallLayer;
