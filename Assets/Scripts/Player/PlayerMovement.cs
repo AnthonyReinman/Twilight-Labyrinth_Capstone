@@ -2,26 +2,45 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Ensure a reasonable default value
+    public Rigidbody2D theRigidbody;
 
-    private Rigidbody2D _rigidbody;
+    public float moveSpeed;
 
-     void Start()
+    public Animator animator;
+
+    public float pickupRange = 1.5f;
+
+    private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        if (_rigidbody == null)
-        {
-            Debug.LogError("Rigidbody2D not found on Player");
-        }
+        theRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //void Start()
+   //{
+
+   // }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        if (GameManager.Instance != null && GameManager.Instance.isGameOver) return;
-        
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector3 moveInput = new Vector3(0f, 0f, 0f);
+
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical"); //
+
         moveInput.Normalize();
 
-        _rigidbody.velocity = moveInput * moveSpeed;
+        theRigidbody.velocity = moveInput * moveSpeed;
+
+        if (moveInput != Vector3.zero)
+        {
+            animator.SetBool("Move", true);
+        }
+        else
+        {
+            //animator.SetBool("Move", false);
+        }
     }
 }
