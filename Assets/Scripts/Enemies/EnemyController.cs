@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -15,10 +16,14 @@ public class EnemyController : MonoBehaviour
     private Vector2 _playerDirection; // Direction player is relative to player, used for tracking and following player
     private float _playerDistance;
     private float nextAttackTime; // Time when the enemy can attack next
+    UnityEngine.AI.NavMeshAgent agent;
 
     void Start()
     {
         _body = GetComponent<Rigidbody2D>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         
         if (_body == null)
         {
@@ -42,13 +47,14 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.isGameOver) return;
+        // if (GameManager.Instance.isGameOver) return;
         
         if (playerObject != null)
         {
             Vector2 tmpDirection = (Vector2)playerObject.position - _body.position;
             tmpDirection.Normalize();
             _playerDirection = tmpDirection;
+            agent.SetDestination(playerObject.position);
 
             _playerDistance = Vector2.Distance(playerObject.position, _body.position);
 
@@ -64,7 +70,7 @@ public class EnemyController : MonoBehaviour
     {
         if (_body != null && _playerDirection != null)
         {
-            _body.MovePosition((Vector2)_body.position + (_playerDirection * movementSpeed * Time.fixedDeltaTime));
+            // _body.MovePosition((Vector2)_body.position + (_playerDirection * movementSpeed * Time.fixedDeltaTime));
         }
     }
 
@@ -74,7 +80,7 @@ public class EnemyController : MonoBehaviour
         if (playerHealthSystem != null)
         {
             Debug.Log("Enemy attacking player with strength: " + attackStrength);
-            playerHealthSystem.TakeDamage(attackStrength);
+            // playerHealthSystem.TakeDamage(attackStrength);
         }
     }
 
