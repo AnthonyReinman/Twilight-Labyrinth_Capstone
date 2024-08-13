@@ -40,8 +40,18 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            currentHealth = 0;
+            Die();
         }
 
         healthSlider.value = currentHealth;
     }
+    // Function to handle player death
+    private void Die()
+    {
+        Debug.Log("Player died at position: " + transform.position);
+        // Implement additional death logic here if necessary
+        gameObject.SetActive(false);  // Example of handling death
+    }
 }
+
