@@ -60,67 +60,119 @@ public class LevelUpManager : MonoBehaviour
     }
 
     List<string> GenerateUpgradeOptions()
+{
+    List<string> availableUpgrades = new List<string>();
+
+    // Check which abilities the player has and add corresponding upgrades
+    if (playerAbilities.HasAbility("CameraZoom"))
     {
-        List<string> availableUpgrades = new List<string>();
-
-        // Check which abilities the player has and add corresponding upgrades
-        if (playerAbilities.HasAbility("CameraZoom"))
-        {
-            availableUpgrades.Add("Upgrade Camera Zoom");
-        }
-
-        if (playerAbilities.HasAbility("HealthBoost"))
-        {
-            availableUpgrades.Add("Upgrade Health");
-        }
-
-        if (playerAbilities.HasAbility("AttackBoost"))
-        {
-            availableUpgrades.Add("Upgrade Attack Power");
-        }
-
-        // Add new abilities if not acquired yet
-        if (!playerAbilities.HasAbility("CameraZoom"))
-        {
-            availableUpgrades.Add("Acquire Camera Zoom");
-        }
-        if (!playerAbilities.HasAbility("HealthBoost"))
-        {
-            availableUpgrades.Add("Acquire Health Boost");
-        }
-        if (!playerAbilities.HasAbility("AttackBoost"))
-        {
-            availableUpgrades.Add("Acquire Attack Boost");
-        }
-
-        return availableUpgrades;
+        availableUpgrades.Add("Upgrade Camera Zoom");
     }
+
+     if (playerAbilities.HasAbility("BurstAttack"))
+    {
+        availableUpgrades.Add("Upgrade Burst Attack");
+    }
+
+    if (playerAbilities.HasAbility("Aura"))
+    {
+        availableUpgrades.Add("Upgrade Aura Damage and Size");
+    }
+
+    if (playerAbilities.HasAbility("HealthBoost"))
+    {
+        availableUpgrades.Add("Upgrade Health");
+    }
+
+    if (playerAbilities.HasAbility("AttackBoost"))
+    {
+        availableUpgrades.Add("Upgrade Attack Power");
+    }
+
+    
+
+    // Add new abilities if not acquired yet
+    if (!playerAbilities.HasAbility("CameraZoom"))
+    {
+        availableUpgrades.Add("Acquire Camera Zoom");
+    }
+
+    if (!playerAbilities.HasAbility("BurstAttack"))
+    {
+        availableUpgrades.Add("Acquire Burst Attack");
+    }
+
+     if (!playerAbilities.HasAbility("Aura"))
+    {
+        availableUpgrades.Add("Acquire Aura");
+    }
+    if (!playerAbilities.HasAbility("HealthBoost"))
+    {
+        availableUpgrades.Add("Acquire Health Boost");
+    }
+    if (!playerAbilities.HasAbility("AttackBoost"))
+    {
+        availableUpgrades.Add("Acquire Attack Boost");
+    }
+   
+
+    return availableUpgrades;
+}
 
     void SelectUpgrade(string selectedUpgrade)
+{
+    switch (selectedUpgrade)
     {
-        switch (selectedUpgrade)
-        {
-            case "Upgrade Camera Zoom":
-                FindObjectOfType<CameraController>().UpgradeCameraZoom();
-                break;
-            case "Upgrade Health":
-                // Add health upgrade logic here
-                break;
-            case "Upgrade Attack Power":
-                // Add attack power upgrade logic here
-                break;
-            case "Acquire Camera Zoom":
-                playerAbilities.AddAbility("CameraZoom");
-                break;
-            case "Acquire Health Boost":
-                playerAbilities.AddAbility("HealthBoost");
-                break;
-            case "Acquire Attack Boost":
-                playerAbilities.AddAbility("AttackBoost");
-                break;
-        }
+        case "Upgrade Camera Zoom":
+            FindObjectOfType<CameraController>().UpgradeCameraZoom();
+            break;
 
-        levelUpPanel.SetActive(false);
-        isPaused = false;
+        case "Upgrade Burst Attack":
+                BurstAttack burstAttack = playerAbilities.GetComponentInChildren<BurstAttack>();
+            if (burstAttack != null)
+            {
+                burstAttack.projectileCount += 2; // Increase the number of projectiles fired
+               // burstAttack.attackInterval = Mathf.Max(0.5f, burstAttack.attackInterval - 0.5f); //decrease the interval between attacks
+            }
+            break;
+        
+        case "Upgrade Aura Damage and Size":
+            AuraAbility aura = GetComponentInChildren<AuraAbility>();
+            if (aura != null)
+            {
+                aura.UpgradeAura(5f, 0.5f); // Increase damage by 5 and radius by 0.5
+            }
+            break;
+
+        case "Upgrade Health":
+            // Add health upgrade logic here
+            break;
+
+        case "Upgrade Attack Power":
+            // Add attack power upgrade logic here
+            break;
+        
+        case "Acquire Camera Zoom":
+            playerAbilities.AddAbility("CameraZoom");
+            break;
+
+        case "Acquire Burst Attack":
+                playerAbilities.AddAbility("BurstAttack");
+                break;
+
+        case "Acquire Aura":
+            playerAbilities.AddAbility("Aura");
+            break;
+        case "Acquire Health Boost":
+            playerAbilities.AddAbility("HealthBoost");
+            break;
+        case "Acquire Attack Boost":
+            playerAbilities.AddAbility("AttackBoost");
+            break;
+        
     }
+
+    levelUpPanel.SetActive(false);
+    isPaused = false;
+}
 }
