@@ -46,6 +46,6 @@ public class PlayerAttackManager : MonoBehaviour
     {
         // Instantiate the projectile at the fire point's position and rotation
         Instantiate(basicProjectile, firePoint.position, firePoint.rotation);
-        Debug.Log("Attack called, instantiating projectile.");
+        // Debug.Log("Attack called, instantiating projectile.");
     }
 }
