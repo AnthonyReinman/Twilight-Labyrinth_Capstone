@@ -6012,6 +6012,7 @@ GameObject:
   - component: {fileID: 430627674}
   - component: {fileID: 430627677}
   - component: {fileID: 430627680}
+  - component: {fileID: 430627684}
   - component: {fileID: 430627678}
   - component: {fileID: 430627679}
   - component: {fileID: 430627681}
