@@ -191,7 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theRigidbody: {fileID: 7132748607511829220}
-  moveSpeed: 3
+  moveSpeed: 1
+  attackRange: 0
   damage: 20
   hitWaitTime: 1
 --- !u!195 &7619515006175450576

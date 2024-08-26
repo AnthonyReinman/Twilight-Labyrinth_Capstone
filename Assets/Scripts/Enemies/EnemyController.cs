@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        
+
         if (_body == null)
         {
             Debug.LogError("Rigidbody2D not found on Enemy");
@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
         if (!playerObject)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if(player != null)
+            if (player != null)
             {
                 playerObject = player.transform;
             }
@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         // if (GameManager.Instance.isGameOver) return;
-        
+
         if (playerObject != null)
         {
             Vector2 tmpDirection = (Vector2)playerObject.position - _body.position;
@@ -84,17 +84,27 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damageToTake)
     {
-        health -= damage;
+        health -= damageToTake;
+        Debug.Log(" died at position: " + transform.position);
+
         if (health <= 0)
         {
-            OnDeath();
+            Die();
         }
     }
-
-    private void OnDeath()
+    public void Die()
     {
+        // Log death message
+        Debug.Log("Enemy died at position: " + transform.position);
+
+        // Spawn XP
+        ExperienceLevelConotroller.instance.SpawnExp(transform.position);
+
+        // Optionally: Add additional death logic here
+
+        // Destroy the enemy
         Destroy(gameObject);
     }
 }
