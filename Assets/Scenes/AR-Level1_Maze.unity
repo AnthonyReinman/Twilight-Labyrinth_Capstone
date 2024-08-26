@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 430627674}
   - component: {fileID: 430627677}
   - component: {fileID: 430627680}
+  - component: {fileID: 430627684}
   - component: {fileID: 430627678}
   - component: {fileID: 430627679}
   - component: {fileID: 430627681}
@@ -660,6 +661,18 @@ MonoBehaviour:
   moveSpeed: 5
   animator: {fileID: 0}
   pickupRange: 1.5
+--- !u!114 &430627684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430627672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955c3dcb4149e3645bf51aa5ae42e407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &760742174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8810301762882381106, guid: c3c4d9de4c9c98e4790289fa3adbf36f,
