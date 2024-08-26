@@ -13,8 +13,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Walls"))
+        {
+            Destroy(gameObject);
+        }
         // Check if the projectile collided with an enemy
-        if (collision.CompareTag("Enemy"))
+        else if (collision.CompareTag("Enemy") || collision.CompareTag("Boss"))
         {
             // Get the EnemyController component from the collided object
             EnemyController enemy = collision.GetComponent<EnemyController>();
@@ -23,6 +27,11 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+            } else {
+                BossMovement boss = collision.GetComponent<BossMovement>();
+                if (boss != null) {
+                    boss.TakeDamage(damage);
+                }
             }
 
             // Destroy the projectile on collision
