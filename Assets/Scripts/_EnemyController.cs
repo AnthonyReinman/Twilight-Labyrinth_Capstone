@@ -79,6 +79,8 @@ public class _EnemyController : MonoBehaviour {
         health = health - damage;
         if (health <= 0) {
             OnDeath();
+
+            ExperienceLevelConotroller.instance.SpawnExp(transform.position);
         }
     }
 
@@ -88,8 +90,9 @@ public class _EnemyController : MonoBehaviour {
         // TODO Play Death Animation
 
         // Destory Game Object
+        Debug.Log("Enemy has died.");
         Destroy(gameObject);
-
+        Debug.Log("Enemy GameObject destroyed.");
         //TODO Drop Loot/Transfer Loot To Player
     }
 

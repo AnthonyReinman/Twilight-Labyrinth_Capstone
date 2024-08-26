@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
 
     public float damage;
+    public float health = 10f; // Added health
 
     public float hitWaitTime = 1f;
     private float hitCounter;
@@ -54,4 +55,28 @@ public class EnemyMovement : MonoBehaviour
             hitCounter = hitWaitTime;
         }    
     }
+    public void TakeDamage(float damageToTake)
+    {
+        health -= damageToTake;
+        Debug.Log(" died at position: " + transform.position);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        // Log death message
+        Debug.Log("Enemy died at position: " + transform.position);
+
+        // Spawn XP
+        ExperienceLevelConotroller.instance.SpawnExp(transform.position);
+
+        // Optionally: Add additional death logic here
+
+        // Destroy the enemy
+        Destroy(gameObject);
+    }
 }
+
