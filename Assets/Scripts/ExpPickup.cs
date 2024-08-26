@@ -15,6 +15,8 @@ public class ExpPickup : MonoBehaviour
     void Start()
     {
         player = PlayerHealth.instance.GetComponent<_PlayerMovement>();
+        checkCounter = timeBetweenChecks; // Initialize counter
+
     }
 
     // Update is called once per frame
@@ -47,7 +49,7 @@ public class ExpPickup : MonoBehaviour
         {
             ExperienceLevelConotroller.instance.GetExp(expValue);
 
-            Destroy(gameObject);
+            Destroy(gameObject);// Destroy XP pickup after collection
         }
     }
 }
