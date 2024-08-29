@@ -5239,6 +5239,74 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &384460646
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -107.13086
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226933720531692760, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: m_Name
+      value: Boss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 744be500326a5174f9b5402840a4e75d, type: 3}
 --- !u!1 &393583452
 GameObject:
   m_ObjectHideFlags: 0
@@ -15276,6 +15344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentExperience: 0
+  pickup: {fileID: 0}
+  expLevels: 
+  currentLevel: 1
+  levelCount: 100
 --- !u!1 &974972647
 GameObject:
   m_ObjectHideFlags: 0
@@ -48970,6 +49042,7 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 0
   damage: 15
+  health: 10
   hitWaitTime: 1
 --- !u!61 &5297816164312371146
 BoxCollider2D:
@@ -53371,3 +53444,4 @@ SceneRoots:
   - {fileID: 1328097108}
   - {fileID: 1690981080}
   - {fileID: 974972650}
+  - {fileID: 384460646}
