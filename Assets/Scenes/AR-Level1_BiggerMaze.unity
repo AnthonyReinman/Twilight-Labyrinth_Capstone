@@ -5247,6 +5247,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2725410103074198543, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: playerCurrencyManager
+      value: 
+      objectReference: {fileID: 430627684}
     - target: {fileID: 4018054163696294958, guid: 744be500326a5174f9b5402840a4e75d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6080,6 +6085,7 @@ GameObject:
   - component: {fileID: 430627674}
   - component: {fileID: 430627677}
   - component: {fileID: 430627680}
+  - component: {fileID: 430627684}
   - component: {fileID: 430627678}
   - component: {fileID: 430627679}
   - component: {fileID: 430627681}
@@ -6325,6 +6331,18 @@ MonoBehaviour:
   moveSpeed: 5
   animator: {fileID: 0}
   pickupRange: 1.5
+--- !u!114 &430627684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430627672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955c3dcb4149e3645bf51aa5ae42e407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &438034136
 GameObject:
   m_ObjectHideFlags: 0
