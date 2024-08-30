@@ -7,9 +7,9 @@ public class BossMovement : MonoBehaviour
     public float attackRange = 3;
     private Transform target;
     public float health = 1200f; // Starting health value
-
     public float damage = 50;
-
+    public float currencyDropValue = 50.0f;
+    public CurrencyManager playerCurrencyManager;
     public float hitWaitTime = 3f;
     private float hitCounter;
     private bool active = false;
@@ -75,5 +75,8 @@ public class BossMovement : MonoBehaviour
 
     private void OnDeath() {
         Destroy(gameObject);
+        if (playerCurrencyManager != null) {
+            playerCurrencyManager.IncreaseBalance(currencyDropValue);
+        }
     }
 }
