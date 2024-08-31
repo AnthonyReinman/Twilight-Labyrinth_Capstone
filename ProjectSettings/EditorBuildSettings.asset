@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 31233acf0e5d9514eb530d40cb5adab2
   - enabled: 1
+    path: Assets/Scenes/AR-Level1_Maze.unity
+    guid: c3aa122f92690eb4e98c3dfc394f769b
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 57e6b31215f718d40820ba2cce032d52
   m_configObjects: {}

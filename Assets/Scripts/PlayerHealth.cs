@@ -50,8 +50,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died at position: " + transform.position);
-        // Implement additional death logic here if necessary
-        gameObject.SetActive(false);  // Example of handling death
+        gameObject.SetActive(false);  
     }
 }
 
