@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
+   
     public List<Ability> availableAbilities;
     private List<Ability> acquiredAbilities = new List<Ability>();
 

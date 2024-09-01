@@ -9,7 +9,14 @@ public class ExperienceLevelConotroller : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public int currentExperience;
@@ -84,14 +91,27 @@ public class ExperienceLevelConotroller : MonoBehaviour
         Debug.Log("ExpPickup spawned at position: " + position);
     }
     void LevelUp()
-        {
+    {
         currentExperience -= expLevels[currentLevel];
-        currentLevel++;
-        
-        if(currentExperience >= expLevels.Count)
-        {
-            currentLevel = expLevels.Count - 1;
-        }
+    currentLevel++;
+
+    if (currentLevel >= expLevels.Count)
+    {
+        currentLevel = expLevels.Count - 1;
+    }
+
+    // Trigger the level-up process, like displaying UI, giving rewards, etc.
+    Debug.Log("Player leveled up to level " + currentLevel);
+
+    // Trigger the ability selection panel
+    if (LevelUpManager.instance != null)
+    {
+        LevelUpManager.instance.TriggerLevelUp();
+    }
+    else
+    {
+        Debug.LogError("LevelUpManager instance is not assigned.");
+    }
     
     }
 }
