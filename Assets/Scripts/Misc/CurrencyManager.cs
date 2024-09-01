@@ -14,12 +14,12 @@ public class CurrencyManager : MonoBehaviour {
             // PlayerPrefs.SetFloat("attackDamageBuff", 5.0f);
             // PlayerPrefs.SetFloat("playerHealthBuff", 50.0f);
         // ----- Reset -----
-            Debug.Log("[TESTING] Resetting perm ability values...");
-            PlayerPrefs.SetFloat("moveSpeedBuff", 0.0f);
-            PlayerPrefs.SetFloat("attackSpeedBuff", 0.0f);
-            PlayerPrefs.SetFloat("attackDamageBuff", 0.0f);
-            PlayerPrefs.SetFloat("playerHealthBuff", 0.0f);
-            PlayerPrefs.SetFloat("moneyBalance", 0.0f);
+            // Debug.Log("[TESTING] Resetting perm ability values...");
+            // PlayerPrefs.SetFloat("moveSpeedBuff", 0.0f);
+            // PlayerPrefs.SetFloat("attackSpeedBuff", 0.0f);
+            // PlayerPrefs.SetFloat("attackDamageBuff", 0.0f);
+            // PlayerPrefs.SetFloat("playerHealthBuff", 0.0f);
+            // PlayerPrefs.SetFloat("moneyBalance", 0.0f);
         // -------------------------------------------------------------------------------
     }
 
