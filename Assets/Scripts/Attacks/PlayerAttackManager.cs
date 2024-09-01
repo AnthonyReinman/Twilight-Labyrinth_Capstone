@@ -11,6 +11,11 @@ public class PlayerAttackManager : MonoBehaviour
     void Start()
     {
         Debug.Log("PlayerAttackManager started");
+        float attackSpeedMod = PlayerPrefs.GetFloat("attackSpeedBuff");
+        if (attackSpeedMod != null && attackSpeedMod > 0) {
+            Debug.Log("Applying attack speed buff [-" + attackSpeedMod + "]!");
+            attackInterval -= attackSpeedMod;
+        }
     }
 
     void Update()
