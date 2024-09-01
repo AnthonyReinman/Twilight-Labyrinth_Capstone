@@ -6307,7 +6307,6 @@ GameObject:
   - component: {fileID: 430627681}
   - component: {fileID: 430627682}
   - component: {fileID: 430627683}
-  - component: {fileID: 430627685}
   - component: {fileID: 430627686}
   m_Layer: 0
   m_Name: Player
@@ -6561,20 +6560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955c3dcb4149e3645bf51aa5ae42e407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &430627685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430627672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97adbe2079b243a4cbec32452cf86f46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableAbilities:
-  - {fileID: 0}
 --- !u!114 &430627686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6588,7 +6573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableAbilities:
-  - abilityName: AuraAbility
+  - abilityName: Aura
     abilityPrefab: {fileID: 3745667152771235848, guid: 2d5ad34e95adf5e448df46445dcf305a,
       type: 3}
   - abilityName: CameraZoom
@@ -21572,7 +21557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6271fb76dccd4cf439b0a53c4ac6ced2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expValue: 1
+  expValue: 100
   moveSpeed: 0
   timeBetweenChecks: 0.2
 --- !u!58 &1328097107
