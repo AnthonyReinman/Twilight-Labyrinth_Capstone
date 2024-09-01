@@ -206,7 +206,7 @@ public class PermBuffManager : MonoBehaviour
         private float value = 0.0f;
 
         private float[] costLevels = new float[] { 50.0f, 100.0f, 200.0f, 300.0f};
-        private float[] valueLevels = new float[] { 10.0f, 50.0f, 100.0f, 200.0f};
+        private float[] valueLevels = new float[] { 2.0f, 6.0f, 14.0f, 20.0f};
 
         public MoveSpeedBuffManager(CurrencyManager _currencyManager) {
             currencyManager = _currencyManager;
