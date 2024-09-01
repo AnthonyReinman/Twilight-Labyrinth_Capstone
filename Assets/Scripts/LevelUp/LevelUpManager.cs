@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class LevelUpManager : MonoBehaviour
 {
+    public static LevelUpManager instance;
+
     public GameObject levelUpPanel;
     public Button option1Button;
     public Button option2Button;
@@ -12,6 +14,18 @@ public class LevelUpManager : MonoBehaviour
 
     private bool isPaused = false;
     private PlayerAbilities playerAbilities;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
