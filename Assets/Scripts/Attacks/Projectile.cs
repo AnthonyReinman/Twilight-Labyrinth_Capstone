@@ -5,6 +5,15 @@ public class Projectile : MonoBehaviour
     public float speed = 10f;
     public float damage = 20f; // Set the damage dealt by the projectile
 
+    void Start()
+    {
+        float attackDamageMod = PlayerPrefs.GetFloat("attackDamageBuff");
+        if (attackDamageMod != null && attackDamageMod > 0) {
+            Debug.Log("Applying attack damage buff [" + attackDamageMod + "]!");
+            damage += attackDamageMod;
+        }
+    }
+
     void Update()
     {
         // Move the projectile forward

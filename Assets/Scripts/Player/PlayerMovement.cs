@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D not found on Player");
         }
+
+        float moveSpeedMod = PlayerPrefs.GetFloat("moveSpeedBuff");
+        if (moveSpeedMod != null && moveSpeedMod > 0) {
+            Debug.Log("Applying move speed buff [" + moveSpeedMod + "]!");
+            moveSpeed += moveSpeedMod;
+        }
     }
 
     void Update()

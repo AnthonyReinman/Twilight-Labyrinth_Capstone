@@ -5540,6 +5540,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2725410103074198543, guid: 744be500326a5174f9b5402840a4e75d,
         type: 3}
+      propertyPath: health
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725410103074198543, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725410103074198543, guid: 744be500326a5174f9b5402840a4e75d,
+        type: 3}
       propertyPath: playerCurrencyManager
       value: 
       objectReference: {fileID: 430627684}

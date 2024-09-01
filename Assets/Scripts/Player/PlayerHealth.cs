@@ -9,6 +9,11 @@ public class HealthSystem : MonoBehaviour
 
     void Start()
     {
+        float playerHealthMod = PlayerPrefs.GetFloat("playerHealthBuff");
+        if (playerHealthMod != null && playerHealthMod > 0) {
+            Debug.Log("Applying health buff [" + playerHealthMod + "]!");
+            maxHealth += playerHealthMod;
+        }
         currentHealth = maxHealth;
         UpdateHealthBar();
     }
