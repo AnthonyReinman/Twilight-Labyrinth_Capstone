@@ -14,6 +14,14 @@ public class LevelUpManager : MonoBehaviour
 
     private bool isPaused = false;
     private PlayerAbilities playerAbilities;
+    public void Pause()
+    {
+        isPaused = true;
+    }
+    public void Resume()
+    {
+        isPaused = false;
+    }
 
     private void Awake()
     {
