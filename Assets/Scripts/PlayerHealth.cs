@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Slider healthSlider;
 
+    private PlayerFlashEffect flashEffect;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +24,17 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+
+        flashEffect = GetComponent<PlayerFlashEffect>();
+
+        if (flashEffect != null)
+        {
+            Debug.Log("PlayerFlashEffect successfully assigned.");
+        }
+        else
+        {
+            Debug.LogError("PlayerFlashEffect is missing on this GameObject!");
+        }
     }
 
     // Update is called once per frame
@@ -36,6 +49,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage) 
     {
         currentHealth -= damage;
+
+        if (flashEffect != null)
+        {
+            flashEffect.FlashScreen();
+        }
 
         if (currentHealth <= 0)
         {
