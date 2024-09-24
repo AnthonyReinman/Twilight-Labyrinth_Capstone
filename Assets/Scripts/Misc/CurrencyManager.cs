@@ -12,7 +12,7 @@ public class CurrencyManager : MonoBehaviour {
             // PlayerPrefs.SetFloat("moveSpeedBuff", 1.0f);
             // PlayerPrefs.SetFloat("attackSpeedBuff", 0.05f);
             // PlayerPrefs.SetFloat("attackDamageBuff", 5.0f);
-            // PlayerPrefs.SetFloat("playerHealthBuff", 500.0f);
+            PlayerPrefs.SetFloat("playerHealthBuff", 50.0f);
         // ----- Reset -----
             // Debug.Log("[TESTING] Resetting perm ability values...");
             // PlayerPrefs.SetFloat("moveSpeedBuff", 0.0f);

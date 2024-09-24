@@ -75,6 +75,10 @@ public class PermBuffManager : MonoBehaviour
         public bool CanAffordUpgrade() {
             return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel + 1];
         }
+
+        public int GetMaxLevel() {
+            return maxLevel;
+        }
     }
 
     public class AttackSpeedBuffManager {

@@ -15775,7 +15775,6 @@ RectTransform:
   - {fileID: 675405053}
   - {fileID: 179459531}
   - {fileID: 236382992}
-  - {fileID: 206589126}
   - {fileID: 575868178}
   - {fileID: 326189116}
   - {fileID: 151621245}
@@ -20722,7 +20721,7 @@ PrefabInstance:
     - target: {fileID: 5279305137789702779, guid: ea9284e6efe21be45a72939ba8091949,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -885.1207
+      value: -885.1208
       objectReference: {fileID: 0}
     - target: {fileID: 6344783503109774234, guid: ea9284e6efe21be45a72939ba8091949,
         type: 3}
@@ -23715,7 +23714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuCanvas: {fileID: 1786042962}
-  LevelUpManager: {fileID: 0}
+  LevelUpManager: {fileID: 970481417}
 --- !u!1 &1328097105
 GameObject:
   m_ObjectHideFlags: 0
