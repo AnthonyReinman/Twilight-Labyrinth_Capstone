@@ -9,10 +9,11 @@ public class CurrencyManager : MonoBehaviour {
 
         // -- For Testing and Demo Purposes, don't forget to reset to 0 & comment out! --
             // Debug.Log("[TESTING] Setting perm ability values...");
-            // PlayerPrefs.SetFloat("moveSpeedBuff", 1.0f);
-            // PlayerPrefs.SetFloat("attackSpeedBuff", 0.05f);
-            // PlayerPrefs.SetFloat("attackDamageBuff", 5.0f);
+            PlayerPrefs.SetFloat("moveSpeedBuff", 0.0f);
+            PlayerPrefs.SetFloat("attackSpeedBuff", 0.0f);
+            PlayerPrefs.SetFloat("attackDamageBuff", 10.0f);
             PlayerPrefs.SetFloat("playerHealthBuff", 50.0f);
+            PlayerPrefs.SetFloat("moneyBalance", 750.0f);
         // ----- Reset -----
             // Debug.Log("[TESTING] Resetting perm ability values...");
             // PlayerPrefs.SetFloat("moveSpeedBuff", 0.0f);

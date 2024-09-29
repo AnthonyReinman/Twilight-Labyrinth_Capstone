@@ -13,12 +13,15 @@ public class UpgradeBtn : MonoBehaviour {
 
     void Start() {
         string objectName = gameObject.name;
-        Debug.Log("The name of this GameObject is: " + objectName);
+        // Debug.Log("The name of this GameObject is: " + objectName);
         string[] nameParts = objectName.Split('_');
         this.type = nameParts[0];
         this.level = Int32.Parse(nameParts[2]);
-        Debug.Log("this.type: " + this.type);
-        Debug.Log("this.level: " + this.level);
+        // Debug.Log("this.type: " + this.type);
+        // Debug.Log("this.level: " + this.level);
+        if (button != null) {
+            button.onClick.AddListener(ClickBtn);
+        }
     }
 
     void Update() {
@@ -27,6 +30,9 @@ public class UpgradeBtn : MonoBehaviour {
             if (type == "HU") {
                 int tmpCurrLvl = buffManager.healthBuffManager.GetCurrentLevel();
                 int nextLevel = tmpCurrLvl+1;
+                Debug.Log("HU Updated - this.level: " + this.level);
+                Debug.Log("HU Updated - tmpCurrLvl: " + tmpCurrLvl);
+                Debug.Log("HU Updated - nextLevel: " + nextLevel);
                 if (this.level == nextLevel) {
                     buttonImage.color = Color.green;
                     button.interactable = true;
@@ -132,14 +138,19 @@ public class UpgradeBtn : MonoBehaviour {
         }
     }
 
-    void ClickBtn() {
+    public void ClickBtn() {
+        Debug.Log("TEST???");
         if (type == "HU") {
+            Debug.Log("TEST A!");
             buffManager.healthBuffManager.LevelUp();
         } else if (type == "AS") {
+            Debug.Log("TEST B!");
             buffManager.attackSpeedBuffManager.LevelUp();
         } else if (type == "AD") {
+            Debug.Log("TEST C!");
             buffManager.attackDamageManager.LevelUp();
         } else if (type == "MS") {
+            Debug.Log("TEST D!");
             buffManager.moveSpeedBuffManager.LevelUp();
         }
     }
