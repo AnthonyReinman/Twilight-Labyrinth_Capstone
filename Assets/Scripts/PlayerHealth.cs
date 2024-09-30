@@ -16,10 +16,8 @@ public class PlayerHealth : MonoBehaviour
 
     private PlayerFlashEffect flashEffect;
 
+    public AudioSource deathSound;
     public BloodSplatManager bloodSplatManager;
-
-
-  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -76,6 +74,9 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died at position: " + transform.position);
+        if (deathSound != null) {
+            deathSound.Play();
+        }
         gameObject.SetActive(false);  
     }
 }
