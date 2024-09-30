@@ -14,6 +14,8 @@ public class BossMovement : MonoBehaviour
     private float hitCounter;
     private bool active = false;
     UnityEngine.AI.NavMeshAgent agent;
+
+    public AudioSource deathSound;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -74,6 +76,9 @@ public class BossMovement : MonoBehaviour
     }
 
     private void OnDeath() {
+        if (deathSound != null) {
+            deathSound.Play();
+        }
         Destroy(gameObject);
         if (playerCurrencyManager != null) {
             playerCurrencyManager.IncreaseBalance(currencyDropValue);

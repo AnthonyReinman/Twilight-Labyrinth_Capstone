@@ -17,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     private float hitCounter;
     UnityEngine.AI.NavMeshAgent agent;
 
+    public AudioSource deathSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,6 +71,10 @@ public class EnemyMovement : MonoBehaviour
     {
         // Log death message
         Debug.Log("Enemy died at position: " + transform.position);
+
+        if (deathSound != null) {
+            deathSound.Play();
+        }
 
         // Spawn XP
         ExperienceLevelConotroller.instance.SpawnExp(transform.position);

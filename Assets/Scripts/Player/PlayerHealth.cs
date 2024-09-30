@@ -7,6 +7,8 @@ public class HealthSystem : MonoBehaviour
     public float currentHealth;
     public Image healthBarFill; //health bar fill image
 
+    public AudioSource deathSound;
+
     void Start()
     {
         float playerHealthMod = PlayerPrefs.GetFloat("playerHealthBuff");
@@ -47,6 +49,9 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died!");
+        if (deathSound != null) {
+            deathSound.Play();
+        }
         GameManager.Instance.GameOver();
     }
 
