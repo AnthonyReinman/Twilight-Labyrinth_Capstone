@@ -56,6 +56,8 @@ public class LevelUpManager : MonoBehaviour
 
     void Update()
     {
+        Debug.LogError(Time.timeScale);
+        Debug.Log(isPaused);
         if (isPaused)
         {
             Time.timeScale = 0f; // Pause the game
