@@ -11,8 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AR-Level1_Maze.unity
     guid: c3aa122f92690eb4e98c3dfc394f769b
-  - enabled: 0
-    path: Assets/Scenes/Level1.unity
-    guid: 57e6b31215f718d40820ba2cce032d52
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

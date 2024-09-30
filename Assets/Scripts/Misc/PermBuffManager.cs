@@ -50,17 +50,16 @@ public class PermBuffManager : MonoBehaviour
         }
 
         public void LevelUp() {
-            if (currencyManager != null) {
+            if (currencyManager == null) {
                 Debug.LogError("currencyManager not found!");
                 return;
             }
             if (currentLevel < maxLevel) {
-                int tmpNewLevel = currentLevel + 1;
-                if (currencyManager.GetBalance() >= costLevels[tmpNewLevel]) {
-                    currencyManager.DecreaseBalance(costLevels[tmpNewLevel]);
-                    value = valueLevels[tmpNewLevel];
+                if (currencyManager.GetBalance() >= costLevels[currentLevel]) {
+                    currencyManager.DecreaseBalance(costLevels[currentLevel]);
+                    value = valueLevels[currentLevel];
                     updateValueStore();
-                    currentLevel = tmpNewLevel;
+                    currentLevel++;
                 } else {
                     Debug.LogError("Cannot afford buff!");
                     return;
@@ -73,7 +72,13 @@ public class PermBuffManager : MonoBehaviour
 
         public int GetCurrentLevel() { return currentLevel;}
         public bool CanAffordUpgrade() {
-            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel + 1];
+            // Debug.Log("[HealthBuffManager] currentLevel: " + currentLevel);
+            // Debug.Log("[HealthBuffManager] maxLevel: " + maxLevel);
+            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel];
+        }
+
+        public int GetMaxLevel() {
+            return maxLevel;
         }
     }
 
@@ -111,17 +116,16 @@ public class PermBuffManager : MonoBehaviour
         }
 
         public void LevelUp() {
-            if (currencyManager != null) {
+            if (currencyManager == null) {
                 Debug.LogError("currencyManager not found!");
                 return;
             }
             if (currentLevel < maxLevel) {
-                int tmpNewLevel = currentLevel + 1;
-                if (currencyManager.GetBalance() >= costLevels[tmpNewLevel]) {
-                    currencyManager.DecreaseBalance(costLevels[tmpNewLevel]);
-                    value = valueLevels[tmpNewLevel];
+                if (currencyManager.GetBalance() >= costLevels[currentLevel]) {
+                    currencyManager.DecreaseBalance(costLevels[currentLevel]);
+                    value = valueLevels[currentLevel];
                     updateValueStore();
-                    currentLevel = tmpNewLevel;
+                    currentLevel++;
                 } else {
                     Debug.LogError("Cannot afford buff!");
                     return;
@@ -134,7 +138,7 @@ public class PermBuffManager : MonoBehaviour
 
         public int GetCurrentLevel() { return currentLevel;}
         public bool CanAffordUpgrade() {
-            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel + 1];
+            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel];
         }
     }
 
@@ -172,17 +176,16 @@ public class PermBuffManager : MonoBehaviour
         }
 
         public void LevelUp() {
-            if (currencyManager != null) {
+            if (currencyManager == null) {
                 Debug.LogError("currencyManager not found!");
                 return;
             }
             if (currentLevel < maxLevel) {
-                int tmpNewLevel = currentLevel + 1;
-                if (currencyManager.GetBalance() >= costLevels[tmpNewLevel]) {
-                    currencyManager.DecreaseBalance(costLevels[tmpNewLevel]);
-                    value = valueLevels[tmpNewLevel];
+                if (currencyManager.GetBalance() >= costLevels[currentLevel]) {
+                    currencyManager.DecreaseBalance(costLevels[currentLevel]);
+                    value = valueLevels[currentLevel];
                     updateValueStore();
-                    currentLevel = tmpNewLevel;
+                    currentLevel++;
                 } else {
                     Debug.LogError("Cannot afford buff!");
                     return;
@@ -195,7 +198,7 @@ public class PermBuffManager : MonoBehaviour
 
         public int GetCurrentLevel() { return currentLevel;}
         public bool CanAffordUpgrade() {
-            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel + 1];
+            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel];
         }
     }
 
@@ -233,17 +236,16 @@ public class PermBuffManager : MonoBehaviour
         }
 
         public void LevelUp() {
-            if (currencyManager != null) {
+            if (currencyManager == null) {
                 Debug.LogError("currencyManager not found!");
                 return;
             }
             if (currentLevel < maxLevel) {
-                int tmpNewLevel = currentLevel + 1;
-                if (currencyManager.GetBalance() >= costLevels[tmpNewLevel]) {
-                    currencyManager.DecreaseBalance(costLevels[tmpNewLevel]);
-                    value = valueLevels[tmpNewLevel];
+                if (currencyManager.GetBalance() >= costLevels[currentLevel]) {
+                    currencyManager.DecreaseBalance(costLevels[currentLevel]);
+                    value = valueLevels[currentLevel];
                     updateValueStore();
-                    currentLevel = tmpNewLevel;
+                    currentLevel++;
                 } else {
                     Debug.LogError("Cannot afford buff!");
                     return;
@@ -256,7 +258,7 @@ public class PermBuffManager : MonoBehaviour
 
         public int GetCurrentLevel() { return currentLevel;}
         public bool CanAffordUpgrade() {
-            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel + 1];
+            return currencyManager != null && currencyManager.GetBalance() >= costLevels[currentLevel];
         }
     }
 
