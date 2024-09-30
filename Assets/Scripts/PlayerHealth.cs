@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerFlashEffect flashEffect;
 
     public AudioSource deathSound;
+    public BloodSplatManager bloodSplatManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,9 +51,14 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (flashEffect != null)
+        //if (flashEffect != null)
+        //{
+        //    flashEffect.FlashScreen();
+        //}
+
+        if (bloodSplatManager != null)
         {
-            flashEffect.FlashScreen();
+            bloodSplatManager.ShowBloodSplats();
         }
 
         if (currentHealth <= 0)
