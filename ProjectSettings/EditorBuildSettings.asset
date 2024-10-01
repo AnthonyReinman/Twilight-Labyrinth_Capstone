@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 31233acf0e5d9514eb530d40cb5adab2
   - enabled: 1
-    path: Assets/Scenes/AR-Level1_Maze.unity
-    guid: c3aa122f92690eb4e98c3dfc394f769b
+    path: Assets/Scenes/AR-Level1_BiggerMaze.unity
+    guid: 525875655402d0f43a98e2a741be91de
+  - enabled: 1
+    path: Assets/Scenes/PermAbilityMenu.unity
+    guid: fcd8015e3ebc41b4bb6cde8cb295b01f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
